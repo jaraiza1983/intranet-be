@@ -1,0 +1,19 @@
+nest new intranet-be
+
+- Arrancar un proyecto
+yarn start:dev
+
+//Remover los paquetes de prettier
+yard remove [*prettier*]
+
+
+docker-compose up
+docker-compose up -d (para correr en background)
+
+
+
+short cuts
+mover un renglon (alt + arriba / alt + abajo)
+
+clonar una linea (shift + alt + arriba / shift + alt + abajo)
+
