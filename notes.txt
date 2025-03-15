@@ -17,3 +17,20 @@ mover un renglon (alt + arriba / alt + abajo)
 
 clonar una linea (shift + alt + arriba / shift + alt + abajo)
 
+//Subir al repositorio 
+git push -u origin main
+
+
+//Clonar el repositorio
+git clone https://github.com/jaraiza1983/intranet-be.git
+
+//Bajar los cambios a mi pc
+
+//Esto descarga los cambios del repositorio remoto, 
+//pero no los aplica a tu código local.
+git fetch
+
+git pull
+o 
+git merge origin/main  # o la rama en la que estés
+

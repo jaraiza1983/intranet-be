@@ -6,7 +6,7 @@
 
 Clonar proyecto
 ```
-PENDIENTE
+git clone https://github.com/jaraiza1983/intranet-be.git
 ```
 
 Instalar paquetes
