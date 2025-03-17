@@ -30,7 +30,9 @@ export class User {
     })
     roles: string[];
 
-    @Column('text')
+    @Column('text',{
+        default: '-'
+    })
     username: string;
 
     @Column('text',{
@@ -43,13 +45,19 @@ export class User {
     })
     last_name: string;
 
-    @Column('text')
+    @Column('text',{
+        default: '-'
+    })
     occupation?: string;
 
-    @Column('text')
+    @Column('text',{
+        default: '-'
+    })
     companyName?:string;
 
-    @Column('text')
+    @Column('text',{
+        default: '-'
+    })
     phone?:string;
 
     @BeforeInsert()
