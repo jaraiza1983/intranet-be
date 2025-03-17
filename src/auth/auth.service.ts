@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, InternalServerErrorException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException, UnauthorizedException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { JwtService } from '@nestjs/jwt';
 import { Repository } from 'typeorm';
@@ -6,6 +6,7 @@ import * as bcrypt from 'bcrypt';
 import { User } from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { LoginUserDto } from './dto/login-user.dto';
+import { AuthUserDto } from './dto/auth-user.dto';
 import { JwtPayload } from './interfaces/jwt-payload.interface';
 
 @Injectable()
@@ -62,6 +63,27 @@ export class AuthService {
     return {
       ...user,
       token: this.getJwtToken({email: user.email})
+    };
+  
+  }
+
+  async user(authUserDto: AuthUserDto){
+    const { email} = authUserDto;
+
+    //TODO: Revisar que este authorizado el usuario antes de continuar
+
+    const user = await this.userRepository.findOne({ 
+      where: { email},
+    });
+
+    if(!user){
+      throw new NotFoundException("User not found");
+    }
+
+    user.password = "****";
+
+    return {
+      ...user,
     };
   
   }
