@@ -46,7 +46,7 @@ export class AuthController {
   }
 
   @Get('test2')
-  @Auth(ValidRoles.admin)
+  @Auth(ValidRoles.admin) //Para utilizar en otros modulos, hay que hacer un import de AuthModule
   getAuthUserTest2(
 
   ) {

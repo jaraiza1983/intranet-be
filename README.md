@@ -28,3 +28,28 @@ Levantar el programa
 yarn start:dev
 ```
 
+Revisar que este authenticado se hace con el decorador ```@Auth()`` para saber que usuario hizo login
+Para validar un role ```@Auth(ValidRoles.admin)```
+Para validar mas de un role ```@Auth(ValidRoles.admin, ValidRoles.superAdmin)```
+
+Se tiene que hacer una importacion de ```AuthModule``` en el modulo
+
+Se puede colocar en controlador a nivel general del modulo
+```
+@Controller('products')
+@Auth
+export class ProductsController {
+
+}
+```
+
+Se puede colocar antes de controller call 
+```
+@Get('list')
+@Auth(ValidRoles.admin)
+findAll(){
+  return {
+    result: "ok",
+  }
+}
+```
