@@ -28,7 +28,7 @@ Levantar el programa
 yarn start:dev
 ```
 
-Revisar que este authenticado se hace con el decorador ```@Auth()`` para saber que usuario hizo login
+Revisar que este authenticado se hace con el decorador ```@Auth()``` para saber que usuario hizo login
 Para validar un role ```@Auth(ValidRoles.admin)```
 Para validar mas de un role ```@Auth(ValidRoles.admin, ValidRoles.superAdmin)```
 
