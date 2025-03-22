@@ -4,6 +4,8 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { LoginUserDto } from './dto/login-user.dto';
 import { AuthUserDto } from './dto/auth-user.dto';
 import { AuthGuard } from '@nestjs/passport';
+import { GetUser } from './decorators/get-user.decorator';
+import { User } from './entities/user.entity';
 
 
 @Controller('auth')
@@ -22,7 +24,11 @@ export class AuthController {
 
   @Post('user')
   @UseGuards( AuthGuard() )
-  getAuthUser(@Body() authUserDto: AuthUserDto){
+  getAuthUser(
+    @Body() authUserDto: AuthUserDto, 
+    @GetUser() user: User,
+    @GetUser('email') userEmail: string,
+  ){
     return this.authService.user(authUserDto);
   }
 }
