@@ -5,7 +5,7 @@ import { LoginUserDto } from './dto/login-user.dto';
 import { AuthUserDto } from './dto/auth-user.dto';
 import { AuthGuard } from '@nestjs/passport';
 import { GetUser } from './decorators/get-user.decorator';
-import { User } from './entities/user.entity';
+import { User } from '../users/entities/user.entity';
 import { UserRoleGuard } from './guards/user-role/user-role.guard';
 import { RoleProtected } from './decorators/role-protected.decorator';
 import { ValidRoles } from './interfaces/valid-roles';

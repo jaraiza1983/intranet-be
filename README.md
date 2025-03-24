@@ -37,7 +37,7 @@ Se tiene que hacer una importacion de ```AuthModule``` en el modulo
 Se puede colocar en controlador a nivel general del modulo
 ```
 @Controller('products')
-@Auth
+@Auth()
 export class ProductsController {
 
 }

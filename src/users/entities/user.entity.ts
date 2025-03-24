@@ -1,7 +1,7 @@
-import { BeforeInsert, BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('users')
-export class Userx {
+export class User {
 
     @PrimaryGeneratedColumn('uuid')
     id: string;
@@ -13,6 +13,7 @@ export class Userx {
 
     @Column('text', {
         select: false,
+        nullable: true,
     })
     password: string;
 
@@ -59,6 +60,14 @@ export class Userx {
         default: '-'
     })
     phone?:string;
+
+    @CreateDateColumn({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+    createAt: Date;
+    
+    @Column('timestamp', {
+        nullable: true,
+    })
+    lastLogin: Date;
 
     @BeforeInsert()
     checkFieldsBeforeInsert() {
